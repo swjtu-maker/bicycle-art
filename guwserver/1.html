@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //建立一个websocket连接
+        var ws = new WebSocket('ws://localhost:3000', 'echo-protocol');
+        //这里的echo-protocol建立连接的方式与js文件中的建立连接的方式相同并且不可以省略不写
+        //对连接进行监听
+        ws.onopen = function(res) {
+                console.log('success!');
+                console.log(res);
+            }
+            //监听发送message
+        ws.onmessage = function(res) {
+            console.log('发送成功！');
+            console.log(res);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+<html>
+
+<body>
+xxxx
+
+<script>
+// Create WebSocket connection.
+const socket = new WebSocket('ws://localhost:3333','echo-protocol');
+
+
+var obj = {
+  cmd:'2',
+  role:'1',
+  data_size:'100',
+  data:['client0','Rev 1.0']
+};
+
+
+// Connection opened
+socket.addEventListener('open', function (event) {
+    //socket.send('Hello Server!');
+    socket.send(JSON.stringify(obj));
+});
+
+// Listen for messages
+socket.addEventListener('message', function (event) {
+    console.log('Message from server ', event.data);
+});
+</script>
+
+
+</body>
